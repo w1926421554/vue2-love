@@ -3,6 +3,7 @@
         <div class="header">
             <div></div>
             <div>登录 -- 恋爱吧</div>
+            <i class="iconfont icon-quxiao"></i>
         </div>
         <div class="nav"></div>
         <div class="container"></div>
