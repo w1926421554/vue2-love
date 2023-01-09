@@ -1,6 +1,6 @@
 <template>
-  <div>主页<van-button type="primary">主要按钮</van-button>
-  </div>
+ <!-- 路由出口 -->
+  <router-view></router-view>
 </template>
 
 <script>

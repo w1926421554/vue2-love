@@ -1,19 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+//登录页
+// import Login from '@/views/login/Login'
 
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'home',
-  //   component: HomeView
-  // },
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  // }
+  {
+    path: '/',
+    name: 'login',
+    component: () => import('@/views/login/Login.vue')
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: () => import('@/views/home/Home.vue')
+  },
 ]
 
 const router = new VueRouter({
