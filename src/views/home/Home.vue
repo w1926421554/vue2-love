@@ -1,6 +1,6 @@
 <template>
     <div>
-        主页2<van-button type="primary">主要按钮</van-button>
+        主页
     </div>
 </template>
 
