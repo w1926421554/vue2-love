@@ -1,15 +1,10 @@
 <template>
-  <div>
-    主页
+  <div>主页<van-button type="primary">主要按钮</van-button>
   </div>
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
