@@ -1,25 +1,38 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 //登录页
 // import Login from '@/views/login/Login'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
+  // 登录页
   {
-    path: '/',
-    name: 'login',
-    component: () => import('@/views/login/Login.vue')
+    path: "/",
+    name: "login",
+    component: () => import("@/views/login/Login.vue"),
+  },
+  // 首页
+  {
+    path: "/home",
+    name: "home",
+    component: () => import("@/views/home/Home.vue"),
+  },
+  // 编辑资料
+  {
+    path: "/edit",
+    name: "edit",
+    component: () => import("@/views/edit/Edit.vue")
   },
   {
-    path: '/home',
-    name: 'home',
-    component: () => import('@/views/home/Home.vue')
-  },
-]
+    path:'/phoneVerify',
+    name:'phoneVerify',
+    component:() => import('@/views/phoneVerify/PhoneVerify.vue')
+  }
+];
 
 const router = new VueRouter({
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

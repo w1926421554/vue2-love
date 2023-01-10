@@ -16,28 +16,27 @@
         <i class="iconfont icon-vertical_line"></i>
         <van-field v-model="tel" type="tel" placeholder="输入手机号" />
       </div>
-      <van-field
-        class="psd"
-        v-model="psd"
-        type="password"
-        placeholder="请输入密码"
-      />
-      <div class="register">
-        <span @click="verify">手机注册</span>
-        <span>忘记密码</span>
+      <div class="verify">
+        <van-field
+          class="psd"
+          v-model="psd"
+          type="password"
+          placeholder="输入六位验证码"
+        />
+        <van-button plain type="primary" color="#000" size="mini" @click="getVerify">发送验证码</van-button>
       </div>
-      <button class="btn" @click="uLogin">登录</button>
+      <button class="btn">确定</button>
     </div>
   </div>
 </template>
 
 <script>
-import { $_userLogin } from "@/apis/user";
+import { $_getVerify } from '@/apis/user';
 export default {
   data() {
     return {
       tel: "13310885344",
-      psd: "123456",
+      psd: "",
       value1: 0,
       option1: [
         { text: "+86", value: 0 },
@@ -48,20 +47,11 @@ export default {
   },
   created() {},
   methods: {
-    async uLogin() {
-      let res = await $_userLogin({
-        mobile: this.tel,
-        password: this.psd,
-      });
-      if (res.data.code === 0) {
-        // 将token存在vuex
-        this.$store.commit('SET_TOKEN',res.data.data.token)
-        this.$router.push('/home')
-      }
-    },
-    // 跳转手机注册
-    verify(){
-      this.$router.push('/phoneVerify')
+    async getVerify(){
+        let res = await $_getVerify({
+            mobile:this.tel
+        })
+        console.log(res);
     }
   },
 };
@@ -119,19 +109,23 @@ export default {
         font-size: 20px;
       }
     }
-    .psd {
-      border-bottom: 1px solid #ccc;
-    }
-    .register {
-      margin: 20px 0;
-      display: flex;
-      justify-content: space-between;
-      color: #230fe9;
-      font-size: 12px;
+    .verify{
+        display: flex;
+        align-items: center;
+        .psd {
+            margin-right: 10px;
+            flex: 0 0 70%;
+          border-bottom: 1px solid #ccc;
+        }
+        .van-button--mini{
+            flex: 1;
+        }
     }
     .btn {
+      margin: 20px 0;
       width: 100%;
       height: 50px;
+      border-radius: 5px;
       background-color: #0084ff;
       color: #fff;
     }

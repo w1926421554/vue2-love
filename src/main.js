@@ -15,6 +15,9 @@ import {
   GridItem,
   DropdownMenu,
   DropdownItem,
+  Tabbar,
+  TabbarItem,
+  Button
 } from "vant";
 
 Vue.use(DropdownMenu)
@@ -24,7 +27,10 @@ Vue.use(DropdownMenu)
   .use(Swipe)
   .use(SwipeItem)
   .use(Grid)
-  .use(GridItem);
+  .use(GridItem)
+  .use(Tabbar)
+  .use(TabbarItem)
+  .use(Button);
 
 Vue.config.productionTip = false;
 
