@@ -14,6 +14,7 @@ export default new Vuex.Store({
     Phone(state){
       return state.userPhone
     },
+    // 密码用户名
     password(state){
       return state.userPassword
     }

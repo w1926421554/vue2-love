@@ -46,7 +46,7 @@ const routes = [
   {
     path:'/successVerify',
     name:'successVerify',
-    component:() => import('@/successVerify/SuccessVerify.vue')
+    component:() => import('@/views/successVerify/SuccessVerify.vue')
   },
   // 关注我的
   {

@@ -65,21 +65,19 @@ export default {
       ],
     };
   },
-  created() {
-},
-methods: {
+  created() {},
+  methods: {
     async getVerify() {
-        let res = await $_getVerify({
-            mobile: this.obj.tel,
-        });
-        console.log(res);
-        if (res.data.data === undefined) {
+      let res = await $_getVerify({
+        mobile: this.obj.tel,
+      });
+      console.log(res);
+      if (res.data.data === undefined) {
         this.msg = "获取验证码失败";
       } else {
-          this.obj.verify = res.data.data.code;
-          this.$store.commit('SET_PHONE',this.obj)
-          console.log(this.$store.getters.Phone.verify);
-        
+        this.obj.verify = res.data.data.code;
+        this.$store.commit("SET_PHONE", this.obj);
+        console.log(this.$store.getters.Phone.verify);
       }
       this.show = false;
     },
