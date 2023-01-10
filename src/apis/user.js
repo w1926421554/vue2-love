@@ -1,5 +1,5 @@
 //用户相关的逻辑接口
-import request from '@/utils/request'
+import request from "@/utlis/request"
 
 //登录接口
 export const userLogin = data => {
