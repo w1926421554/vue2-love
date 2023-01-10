@@ -1,5 +1,5 @@
 <template>
-    <!-- 手机注册 -->
+  <!-- 手机注册 -->
   <div class="root">
     <Nav-Title></Nav-Title>
     <div class="container">
@@ -8,12 +8,12 @@
           <van-dropdown-item v-model="value1" :options="option1" />
         </van-dropdown-menu>
         <i class="iconfont icon-vertical_line"></i>
-        <van-field v-model="tel" type="tel" placeholder="输入手机号" />
+        <van-field v-model="obj.tel" type="tel" placeholder="输入手机号" />
       </div>
       <div class="verify">
         <van-field
           class="psd"
-          v-model="verify"
+          v-model="obj.verify"
           type="password"
           :placeholder="msg"
         />
@@ -42,17 +42,19 @@
 </template>
 
 <script>
-import NavTitle from '@/conpoments/NavTitle.vue'
+import NavTitle from "@/conpoments/NavTitle.vue";
 import { $_getVerify, $_checkCode } from "@/apis/user";
 export default {
-    components:{
-        NavTitle
-    },
+  components: {
+    NavTitle,
+  },
   data() {
     return {
-      tel: "13310885344",
-      verify: "",
-      msg:'',
+      obj: {
+        tel: "",
+        verify: "",
+      },
+      msg: "",
       time: 60 * 1000,
       show: true,
       value1: 0,
@@ -63,17 +65,21 @@ export default {
       ],
     };
   },
-  created() {},
-  methods: {
+  created() {
+},
+methods: {
     async getVerify() {
-      let res = await $_getVerify({
-        mobile: this.tel,
-      });
-      console.log(res);
-      if (res.data.data.code === undefined) {
+        let res = await $_getVerify({
+            mobile: this.obj.tel,
+        });
+        console.log(res);
+        if (res.data.data === undefined) {
         this.msg = "获取验证码失败";
       } else {
-        this.verify = res.data.data.code;
+          this.obj.verify = res.data.data.code;
+          this.$store.commit('SET_PHONE',this.obj)
+          console.log(this.$store.getters.Phone.verify);
+        
       }
       this.show = false;
     },
@@ -84,13 +90,13 @@ export default {
     // 校验跳转
     async success() {
       let res = await $_checkCode({
-        mobile: this.tel,
-        code: this.verify,
+        mobile: this.obj.tel,
+        code: this.obj.verify,
       });
-      if(res.data.code === 0){
-        this.$router.push('/registration')
-      }else{
-        this.msg = '请填写验证码'
+      if (res.data.code === 0) {
+        this.$router.push("/registration");
+      } else {
+        this.msg = "请填写验证码";
       }
       console.log(res);
     },

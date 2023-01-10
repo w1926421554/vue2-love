@@ -1,11 +1,11 @@
 <template>
-    <!-- 用户名输入 密码输入 -->
+  <!-- 用户名输入 密码输入 -->
   <div>
     <Nav-Title></Nav-Title>
     <div class="container">
-      <van-field v-model="name" type="name" placeholder="输入名字" />
-      <van-field v-model="psd" type="password" placeholder="输入密码" />
-      <van-field v-model="copyPsd" type="password" placeholder="重输密码" />
+      <van-field v-model="obj.name" type="name" placeholder="输入名字" />
+      <van-field v-model="obj.psd" type="password" placeholder="输入密码" />
+      <van-field v-model="obj.copyPsd" type="password" placeholder="重输密码" />
       <p class="title" v-if="show">密码不一致</p>
       <van-button type="info" @click="success">确认</van-button>
     </div>
@@ -20,26 +20,27 @@ export default {
   },
   data() {
     return {
-      name: "",
-      psd: "",
-      copyPsd: "",
-      show:false
+      obj: {
+        name: "",
+        psd: "",
+        copyPsd: "",
+      },
+      show: false,
     };
   },
   methods: {
     success() {
-      if (this.name !== "" && this.psd !== "" && this.copyPsd !== "" && this.psd === this.copyPsd) {
-        this.$router.push({
-            name:'successVerify',
-            params:{
-                name:this.name,
-                password:this.psd
-            }
-        })
-      }else{
-        this.show = true
-        this.psd = '',
-        this.copyPsd = ''
+      if (
+        this.obj.name !== "" &&
+        this.obj.psd !== "" &&
+        this.obj.copyPsd !== "" &&
+        this.obj.psd === this.obj.copyPsd
+      ) {
+        this.$store.commit("SET_PASSWORD",this.obj)
+        this.$router.push('/successVerify');
+      } else {
+        this.show = true;
+        (this.psd = ""), (this.copyPsd = "");
       }
     },
   },
@@ -53,7 +54,7 @@ export default {
     border-bottom: 1px solid #ccc;
     margin-top: 10px;
   }
-  .title{
+  .title {
     margin-top: 10px;
     color: red;
   }

@@ -44,7 +44,7 @@ const routes = [
   },
   // 登录目的
   {
-    path:'/successVerify/:name/:password',
+    path:'/successVerify',
     name:'successVerify',
     component:() => import('@/successVerify/SuccessVerify.vue')
   },

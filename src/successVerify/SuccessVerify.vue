@@ -1,5 +1,5 @@
 <template>
-    <!-- 注册页面 -->
+  <!-- 注册页面 -->
   <div class="root">
     <Nav-Title></Nav-Title>
     <div class="container">
@@ -12,7 +12,7 @@
               :key="index"
               :title="item.text"
               clickable
-              @click="radio = item.name"
+              @click="select(item.text)"
             >
               <template #right-icon>
                 <van-radio :name="item.name" />
@@ -20,7 +20,11 @@
             </van-cell>
           </van-cell-group>
         </van-radio-group>
-        <van-field v-model="tel" type="tel" placeholder="上面都不是我自己输入" />
+        <van-field
+          v-model="text"
+          type="tel"
+          placeholder="上面都不是我自己输入"
+        />
       </div>
       <van-button type="info" @click="success">确认</van-button>
     </div>
@@ -29,13 +33,16 @@
 
 <script>
 import NavTitle from "@/conpoments/NavTitle.vue";
+import { $_successRegister } from "@/apis/user";
 export default {
   components: {
     NavTitle,
   },
   data() {
     return {
-      radio: [],
+      radio: "",
+      text: "",
+      str: "",
       list: [
         { text: "征婚 寻找知心爱人", name: 1 },
         { text: "学习 成为知心知情知意的人", name: 2 },
@@ -44,10 +51,34 @@ export default {
       ],
     };
   },
-  created() {
-    console.log(this.$route);
+  created() {},
+  methods: {
+    // 选中项
+    select(str) {
+      this.str = str;
+    },
+    // 注册账号
+    async success() {
+      let res = await $_successRegister({
+        mobile: Number(this.uphone.tel),
+        code: this.uphone.verify,
+        nickname: this.password.name,
+        password: this.password.psd,
+        purpose: this.str || this.text,
+      });
+      console.log(res);
+    },
   },
-  methods: {},
+  computed: {
+    // 验证码
+    uphone() {
+      return this.$store.getters.Phone;
+    },
+    // 密码 用户名
+    password() {
+      return this.$store.getters.password;
+    },
+  },
 };
 </script>
 
@@ -67,9 +98,9 @@ export default {
       }
     }
     .van-button--normal {
-    margin-top: 50px;
-    width: 100%;
-  }
+      margin-top: 50px;
+      width: 100%;
+    }
   }
 }
 </style>
