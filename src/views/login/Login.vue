@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div class="root">
     <div class="nav">
       <i class="iconfont icon-quxiao"></i>
@@ -8,40 +7,6 @@
         <span>成为知心爱人</span>
         <span>共建心灵港湾</span>
       </div>
-=======
-  <!-- <div>
-    <van-form @submit="onSubmit">
-      <van-field
-        v-model="mobile"
-        name="mobile"
-        label="用户名"
-        placeholder="输入手机号"
-      />
-      <van-field
-        v-model="password"
-        type="password"
-        name="password"
-        label="密码"
-        placeholder="请输入密码"
-      />
-      <div style="margin: 16px">
-        <van-button round block type="info" native-type="submit"
-          >提交</van-button
-        >
-      </div>
-    </van-form>
-  </div> -->
-  
-    <div class="root">
-        <div class="header">
-            <div></div>
-            <div>登录 -- 恋爱吧</div>
-            <i class="iconfont icon-quxiao"></i>
-        </div>
-        <div class="nav"></div>
-        <div class="container"></div>
->>>>>>> 21a0e81e1b812f66c63161281754176dcc602e94
-    </div>
     <div class="container">
       <div class="container-tel">
         <van-dropdown-menu :overlay="false">
@@ -58,10 +23,10 @@
       <button class="btn" @click="uLogin">登录</button>
     </div>
   </div>
+</div>
 </template>
 
 <script>
-<<<<<<< HEAD
 import {userLogin} from "@/apis/user"
 export default {
   data() {
@@ -89,21 +54,7 @@ export default {
         }
     }
   }
-=======
-export default {
-  data() {
-    return {
-        mobile: "13310885344",
-      password: "123456",
-    };
-  },
-  methods: {
-    onSubmit(values) {
-      console.log(values);
-    },
-  },
->>>>>>> 21a0e81e1b812f66c63161281754176dcc602e94
-};
+}
 </script>
 
 <style lang="scss" scoped>
