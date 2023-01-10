@@ -35,7 +35,19 @@ const routes = [
     path:'/phoneVerify',
     name:'phoneVerify',
     component:() => import('@/views/phoneVerify/PhoneVerify.vue')
-  }
+  },
+  // 关注我的
+  {
+    path:'/follow',
+    name:'follow',
+    component:() => import('@/views/follow/Follow.vue')
+  },
+    // 我的相册
+    {
+      path:'/myphoto',
+      name:'myphoto',
+      component:() => import('@/views/myPhoto/MyPhoto.vue')
+    }
 ];
 
 

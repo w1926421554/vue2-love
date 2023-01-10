@@ -17,7 +17,9 @@ import {
   DropdownItem,
   Tabbar,
   TabbarItem,
-  Button
+  Button,
+  Cell,
+  CellGroup,
 } from "vant";
 
 Vue.use(DropdownMenu)
@@ -30,6 +32,8 @@ Vue.use(DropdownMenu)
   .use(Tabbar)
   .use(TabbarItem)
   .use(GridItem)
+  .use(CellGroup)
+  .use(Cell)
   .use(Button);
 
 Vue.config.productionTip = false;
