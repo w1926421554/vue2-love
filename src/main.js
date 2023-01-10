@@ -18,8 +18,11 @@ import {
   Tabbar,
   TabbarItem,
   Button,
+  CountDown,
+  RadioGroup,
+  Radio,
   Cell,
-  CellGroup,
+  CellGroup
 } from "vant";
 
 Vue.use(DropdownMenu)
@@ -32,9 +35,12 @@ Vue.use(DropdownMenu)
   .use(Tabbar)
   .use(TabbarItem)
   .use(GridItem)
-  .use(CellGroup)
+  .use(Button)
+  .use(CountDown)
+  .use(RadioGroup)
+  .use(Radio)
   .use(Cell)
-  .use(Button);
+  .use(CellGroup);
 
 Vue.config.productionTip = false;
 

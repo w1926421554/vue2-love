@@ -1,13 +1,6 @@
 <template>
   <div class="root">
-    <div class="nav">
-      <i class="iconfont icon-quxiao"></i>
-      <div class="nav-title">登录恋爱吧</div>
-      <div class="nav-text">
-        <span>成为知心爱人</span>
-        <span>共建心灵港湾</span>
-      </div>
-    </div>
+    <Nav-Title></Nav-Title>
     <div class="container">
       <div class="container-tel">
         <van-dropdown-menu :overlay="false">
@@ -32,9 +25,13 @@
 </template>
 
 <script>
+import NavTitle from "@/conpoments/NavTitle.vue";
 import { $_userLogin } from "@/apis/user";
 import local from "@/utlis/local";
 export default {
+  components: {
+    NavTitle,
+  },
   data() {
     return {
       tel: "13310885344",
@@ -58,7 +55,7 @@ export default {
         // 将token存在vuex
         this.$store.commit("SET_TOKEN", res.data.data);
         // 将登录信息存本地
-        local.set('userInfo',res.data.data)
+        local.set("userInfo", res.data.data);
         this.$router.push("/home");
       }
     },

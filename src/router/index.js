@@ -36,6 +36,18 @@ const routes = [
     name:'phoneVerify',
     component:() => import('@/views/phoneVerify/PhoneVerify.vue')
   },
+  // 用户名 密码输入
+  {
+    path:'/registration',
+    name:'registration',
+    component:() => import('@/views/registration/Registration.vue')
+  },
+  // 登录目的
+  {
+    path:'/successVerify/:name/:password',
+    name:'successVerify',
+    component:() => import('@/successVerify/SuccessVerify.vue')
+  },
   // 关注我的
   {
     path:'/follow',
