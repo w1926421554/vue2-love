@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { userLogin } from "@/apis/user";
+import { $_userLogin } from "@/apis/user";
 export default {
   data() {
     return {
@@ -49,11 +49,12 @@ export default {
   created() {},
   methods: {
     async uLogin() {
-      let res = await userLogin({
+      let res = await $_userLogin({
         mobile: this.tel,
         password: this.psd,
       });
       if (res.data.code === 0) {
+        
         localStorage.setItem("token", res.data.data.token);
       }
     },
