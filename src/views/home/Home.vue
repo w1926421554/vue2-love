@@ -20,7 +20,7 @@
     <!-- 主体内容 -->
     <div class="main">
       <!-- 宫格卡片 -->
-      <van-grid :column-num="5">
+      <van-grid :border="false" :column-num="5">
         <van-grid-item v-for="item in gridItem" :key="item.text">
           <img class="item-img" :src="item.img" alt="" />
           <div class="item-text">{{ item.text }}</div>
@@ -165,7 +165,9 @@ export default {
     font-size: 14px;
   }
   .van-grid {
+    position: relative;
     top: -8px;
+    background-color: #fff;
   }
   .my {
     display: flex;
