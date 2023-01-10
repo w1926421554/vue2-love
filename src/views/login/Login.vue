@@ -33,6 +33,7 @@
 
 <script>
 import { $_userLogin } from "@/apis/user";
+import local from "@/utlis/local";
 export default {
   data() {
     return {
@@ -55,14 +56,16 @@ export default {
       });
       if (res.data.code === 0) {
         // 将token存在vuex
-        this.$store.commit('SET_TOKEN',res.data)
-        this.$router.push('/home')
+        this.$store.commit("SET_TOKEN", res.data.data);
+        // 将登录信息存本地
+        local.set('userInfo',res.data.data)
+        this.$router.push("/home");
       }
     },
     // 跳转手机注册
-    verify(){
-      this.$router.push('/phoneVerify')
-    }
+    verify() {
+      this.$router.push("/phoneVerify");
+    },
   },
 };
 </script>

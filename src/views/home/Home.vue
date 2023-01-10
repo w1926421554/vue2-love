@@ -29,7 +29,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      userInfo:''
+    }
+  },
+  created(){
+    this.userInfo = this.$store.state.userInfo
+    console.log(this.userInfo);
+    
+  }
+};
 </script>
 
 <style lang="scss" scoped>
