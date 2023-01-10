@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div style="height: 100%;">
     <!-- 路由出口 -->
-    <router-view></router-view>
+    <router-view style="height: 100%;"></router-view>
     <!-- 底部导航 -->
     <van-tabbar route v-if="this.$route.path === '/home' || this.$route.path === '/mine'">
       <van-tabbar-item replace to="/home" icon="friends">征婚</van-tabbar-item>

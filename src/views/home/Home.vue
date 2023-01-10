@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
       <van-swipe-item>1</van-swipe-item>
       <van-swipe-item>2</van-swipe-item>
@@ -67,6 +67,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.app{
+  display: flex;
+  flex-direction: column;
+}
 .my-swipe .van-swipe-item {
   color: #fff;
   font-size: 20px;
@@ -79,13 +83,17 @@ export default {
   background-color: #8051d6;
 }
 .main {
-  height: 100%;
   padding: 0 15px;
+  position: relative;
+  flex: 1;
   background-color: #f3f3ed;
+  .van-grid{
+    top: -8px;
+  }
   .my {
     display: flex;
     height: 120px;
-    margin: 15px 0;
+    margin:7px 0 15px 0;
     padding: 10px;
     background-color: #8051d6;
     .my-img {
