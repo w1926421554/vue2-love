@@ -47,7 +47,37 @@ const routes = [
     path:'/successVerify/:name/:password',
     name:'successVerify',
     component:() => import('@/successVerify/SuccessVerify.vue')
-  }
+  },
+  // 关注我的
+  {
+    path:'/follow',
+    name:'follow',
+    component:() => import('@/views/follow/Follow.vue')
+  },
+    // 我的相册
+    {
+      path:'/myphoto',
+      name:'myphoto',
+      component:() => import('@/views/myPhoto/MyPhoto.vue')
+    },
+    // 鲜花礼物
+    {
+      path:'/gift',
+      name:'gift',
+      component:() => import('@/views/gift/Gift.vue')
+    },
+    // 我要分享
+    {
+      path:'/share',
+      name:'share',
+      component:() => import('@/views/sharePage/SharePage.vue')
+    },
+    // 签到
+    {
+      path:'/signin',
+      name:'signin',
+      component:() => import('@/views/signIn/SignIn.vue')
+    }
 ];
 
 
