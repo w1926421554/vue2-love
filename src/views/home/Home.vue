@@ -130,7 +130,7 @@ export default {
       this.userInfo = local.get("userInfo");
     }
     // this.userInfo = this.$store.state.userInfo;
-    console.log(this.userInfo);
+    // console.log(this.userInfo);
   },
 };
 </script>

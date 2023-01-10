@@ -56,6 +56,7 @@ export default {
         this.$store.commit("SET_TOKEN", res.data.data);
         // 将登录信息存本地
         local.set("userInfo", res.data.data);
+        local.set('token',res.data.data.token)
         this.$router.push("/home");
       }
     },

@@ -22,7 +22,9 @@ import {
   RadioGroup,
   Radio,
   Cell,
-  CellGroup
+  CellGroup,
+  Tab,
+  Tabs,
 } from "vant";
 
 Vue.use(DropdownMenu)
@@ -40,6 +42,8 @@ Vue.use(DropdownMenu)
   .use(RadioGroup)
   .use(Radio)
   .use(Cell)
+  .use(Tab)
+  .use(Tabs)
   .use(CellGroup);
 
 Vue.config.productionTip = false;

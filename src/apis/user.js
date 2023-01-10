@@ -34,3 +34,12 @@ export const $_successRegister = data => {
         data
     })
 }
+
+// 关注列表
+export const $_followList = data => {
+    return request({
+        method:'post',
+        url:'/follow_list',
+        data
+    })
+}
