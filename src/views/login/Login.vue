@@ -55,7 +55,7 @@ export default {
       });
       if (res.data.code === 0) {
         // 将token存在vuex
-        this.$store.commit('SET_TOKEN',res.data.data.token)
+        this.$store.commit('SET_TOKEN',res.data)
         this.$router.push('/home')
       }
     },

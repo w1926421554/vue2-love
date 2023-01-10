@@ -30,6 +30,7 @@ const routes = [
     name:'mine',
     component: () => import('@/views/mine/Mine.vue')
   },
+  // 手机注册
   {
     path:'/phoneVerify',
     name:'phoneVerify',
