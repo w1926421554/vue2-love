@@ -9,3 +9,12 @@ export const $_userLogin = data => {
         data
     })
 }
+
+// 发送验证码
+export const $_getVerify = data => {
+    return request({
+        method: 'post',
+        url: '/code',
+        data
+    })
+}
