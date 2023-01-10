@@ -7,6 +7,7 @@
         <span>成为知心爱人</span>
         <span>共建心灵港湾</span>
       </div>
+    </div>
     <div class="container">
       <div class="container-tel">
         <van-dropdown-menu :overlay="false">
@@ -15,7 +16,12 @@
         <i class="iconfont icon-vertical_line"></i>
         <van-field v-model="tel" type="tel" placeholder="输入手机号" />
       </div>
-      <van-field class="psd" v-model="psd" type="password" placeholder="请输入密码" />
+      <van-field
+        class="psd"
+        v-model="psd"
+        type="password"
+        placeholder="请输入密码"
+      />
       <div class="register">
         <span>手机注册</span>
         <span>忘记密码</span>
@@ -23,16 +29,15 @@
       <button class="btn" @click="uLogin">登录</button>
     </div>
   </div>
-</div>
 </template>
 
 <script>
-import {userLogin} from "@/apis/user"
+import { userLogin } from "@/apis/user";
 export default {
   data() {
     return {
       tel: "13310885344",
-      psd:'123456',
+      psd: "123456",
       value1: 0,
       option1: [
         { text: "+86", value: 0 },
@@ -41,20 +46,19 @@ export default {
       ],
     };
   },
-  created(){
+  created() {},
+  methods: {
+    async uLogin() {
+      let res = await userLogin({
+        mobile: this.tel,
+        password: this.psd,
+      });
+      if (res.data.code === 0) {
+        localStorage.setItem("token", res.data.data.token);
+      }
+    },
   },
-  methods:{
-    async uLogin(){
-        let res = await userLogin({
-            mobile:this.tel,
-            password:this.psd
-        })
-        if(res.data.code === 0){
-            localStorage.setItem('token',res.data.data.token)
-        }
-    }
-  }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -109,21 +113,21 @@ export default {
         font-size: 20px;
       }
     }
-    .psd{
-        border-bottom: 1px solid #ccc;
+    .psd {
+      border-bottom: 1px solid #ccc;
     }
-    .register{
-        margin: 20px 0;
-        display: flex;
-        justify-content: space-between;
-        color: #230fe9;
-        font-size: 12px;
+    .register {
+      margin: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      color: #230fe9;
+      font-size: 12px;
     }
-    .btn{
-        width: 100%;
-        height: 50px;
-        background-color: #0084ff;
-        color: #fff;
+    .btn {
+      width: 100%;
+      height: 50px;
+      background-color: #0084ff;
+      color: #fff;
     }
   }
 }
