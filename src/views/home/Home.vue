@@ -31,7 +31,7 @@
       <!-- 单元格 -->
       <div class="cell">
         <van-cell-group>
-          <van-cell is-link to="index">
+          <van-cell is-link to="/signin">
             <template #title>
               <span class="custom-title">签到</span>
               <span class="left-value" type="danger">连续签到7天可获得双倍积分</span>
@@ -40,8 +40,8 @@
           <van-cell size="large" title="编辑资料" is-link to="/edit" />
           <van-cell title="关注我的" is-link to="/follow" />
           <van-cell title="我的相册" is-link to="/myphoto" />
-          <van-cell title="鲜花礼物" is-link to="index" />
-          <van-cell title="我要分享" is-link to="index" />
+          <van-cell title="鲜花礼物" is-link to="/gift" />
+          <van-cell title="我要分享" is-link to="/share" />
         </van-cell-group>
       </div>
     </div>
