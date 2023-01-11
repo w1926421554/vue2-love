@@ -25,6 +25,8 @@ import {
   CellGroup,
   Tab,
   Tabs,
+  Cascader,
+  Popup,
 } from "vant";
 
 Vue.use(DropdownMenu)
@@ -44,7 +46,9 @@ Vue.use(DropdownMenu)
   .use(Cell)
   .use(Tab)
   .use(Tabs)
-  .use(CellGroup);
+  .use(CellGroup)
+  .use(Cascader)
+  .use(Popup);
 
 Vue.config.productionTip = false;
 
