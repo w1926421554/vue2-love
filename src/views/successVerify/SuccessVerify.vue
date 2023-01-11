@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import NavTitle from "@/conpoments/NavTitle.vue";
+import NavTitle from "@/components/NavTitle.vue";
 import { $_successRegister } from "@/apis/user";
 export default {
   components: {
