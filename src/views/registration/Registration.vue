@@ -4,8 +4,8 @@
     <Nav-Title></Nav-Title>
     <div class="container">
       <van-field v-model="obj.name" type="name" placeholder="输入名字" />
-      <van-field v-model="obj.psd" type="password" placeholder="输入密码" />
-      <van-field v-model="obj.copyPsd" type="password" placeholder="重输密码" />
+      <van-field v-model="obj.psd" type="text" placeholder="输入密码" />
+      <van-field v-model="obj.copyPsd" type="text" placeholder="重输密码" />
       <p class="title" v-if="show">密码不一致</p>
       <van-button type="info" @click="success">确认</van-button>
     </div>

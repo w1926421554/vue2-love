@@ -12,7 +12,7 @@
       <van-field
         class="psd"
         v-model="psd"
-        type="password"
+        type="text"
         placeholder="请输入密码"
       />
       <div class="register">

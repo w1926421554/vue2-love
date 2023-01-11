@@ -14,7 +14,7 @@
         <van-field
           class="psd"
           v-model="obj.verify"
-          type="password"
+          type="text"
           :placeholder="msg"
         />
         <div class="verify-get">
@@ -44,6 +44,7 @@
 <script>
 import NavTitle from "@/conpoments/NavTitle.vue";
 import { $_getVerify, $_checkCode } from "@/apis/user";
+import local from "@/utlis/local";
 export default {
   components: {
     NavTitle,
@@ -76,27 +77,22 @@ export default {
         this.msg = "获取验证码失败";
       } else {
         this.obj.verify = res.data.data.code;
-        this.$store.commit("SET_PHONE", this.obj);
-        console.log(this.$store.getters.Phone.verify);
+        this.show = false
       }
-      this.show = false;
+      // this.show = false;
     },
     // 验证码倒计时
     timer() {
       this.show = true;
     },
     // 校验跳转
-    async success() {
-      let res = await $_checkCode({
-        mobile: this.obj.tel,
-        code: this.obj.verify,
-      });
-      if (res.data.code === 0) {
+    success() {
+      if (this.obj.verify !== '') {
+        this.$store.commit("SET_PHONE", this.obj);
         this.$router.push("/registration");
       } else {
         this.msg = "请填写验证码";
       }
-      console.log(res);
     },
   },
 };

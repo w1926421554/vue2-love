@@ -34,6 +34,7 @@
 <script>
 import NavTitle from "@/conpoments/NavTitle.vue";
 import { $_successRegister } from "@/apis/user";
+import local from '@/utlis/local'
 export default {
   components: {
     NavTitle,
@@ -51,7 +52,8 @@ export default {
       ],
     };
   },
-  created() {},
+  created() {
+  },
   methods: {
     // 选中项
     select(str) {
@@ -66,7 +68,9 @@ export default {
         password: this.password.psd,
         purpose: this.str || this.text,
       });
-      console.log(res);
+      if(res.data.code === 0){
+        this.$router.push('/')
+      }
     },
   },
   computed: {

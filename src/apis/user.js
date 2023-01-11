@@ -18,14 +18,6 @@ export const $_getVerify = data => {
         data
     })
 }
-// 校验验证码
-export const $_checkCode= data => {
-    return request({
-        method: 'post',
-        url: '/verify',
-        data
-    })
-}
 // 手机注册
 export const $_successRegister = data => {
     return request({
