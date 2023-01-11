@@ -107,7 +107,7 @@ export default {
     margin:  0 auto;
     position: relative;
     top: -10px;
-    padding: 110px;
+    padding: 10px;
     width: 95%;
     background-color: #fff;
     ::v-deep .van-radio--horizontal{
