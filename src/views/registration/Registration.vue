@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import NavTitle from "@/conpoments/NavTitle.vue";
+import NavTitle from "@/components/NavTitle.vue";
 export default {
   components: {
     NavTitle,

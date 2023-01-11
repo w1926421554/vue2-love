@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import NavTitle from "@/conpoments/NavTitle.vue";
+import NavTitle from "@/components/NavTitle.vue";
 import { $_getVerify, $_checkCode } from "@/apis/user";
 import local from "@/utlis/local";
 export default {

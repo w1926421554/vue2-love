@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import NavTitle from "@/conpoments/NavTitle.vue";
+import NavTitle from "@/components/NavTitle.vue";
 import { $_userLogin } from "@/apis/user";
 import local from "@/utlis/local";
 export default {
